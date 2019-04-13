@@ -1,0 +1,10 @@
+/Users/bhargavpalluru/Desktop/emailservicerepository-master/EmailMicroService/src/main/java/com/vibenails/emailservice/service/UpdateService.java
+/Users/bhargavpalluru/Desktop/emailservicerepository-master/EmailMicroService/src/main/java/com/vibenails/emailservice/models/ClientsList.java
+/Users/bhargavpalluru/Desktop/emailservicerepository-master/EmailMicroService/src/main/java/com/vibenails/emailservice/serviceimpl/UpdateServiceImpl.java
+/Users/bhargavpalluru/Desktop/emailservicerepository-master/EmailMicroService/src/main/java/com/vibenails/emailservice/entities/Clients.java
+/Users/bhargavpalluru/Desktop/emailservicerepository-master/EmailMicroService/src/main/java/com/vibenails/emailservice/util/EmailUtil.java
+/Users/bhargavpalluru/Desktop/emailservicerepository-master/EmailMicroService/src/main/java/com/vibenails/emailservice/repository/ClientRepository.java
+/Users/bhargavpalluru/Desktop/emailservicerepository-master/EmailMicroService/src/main/java/com/vibenails/emailservice/components/EmailConfiguration.java
+/Users/bhargavpalluru/Desktop/emailservicerepository-master/EmailMicroService/src/main/java/com/vibenails/emailservice/Application.java
+/Users/bhargavpalluru/Desktop/emailservicerepository-master/EmailMicroService/src/main/java/com/vibenails/emailservice/models/PersonQuote.java
+/Users/bhargavpalluru/Desktop/emailservicerepository-master/EmailMicroService/src/main/java/com/vibenails/emailservice/controller/QuotationController.java

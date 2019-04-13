@@ -1,0 +1,10 @@
+com/vibenails/emailservice/models/PersonQuote.class
+com/vibenails/emailservice/serviceimpl/UpdateServiceImpl.class
+com/vibenails/emailservice/repository/ClientRepository.class
+com/vibenails/emailservice/components/EmailConfiguration.class
+com/vibenails/emailservice/Application.class
+com/vibenails/emailservice/util/EmailUtil.class
+com/vibenails/emailservice/models/ClientsList.class
+com/vibenails/emailservice/service/UpdateService.class
+com/vibenails/emailservice/controller/QuotationController.class
+com/vibenails/emailservice/entities/Clients.class
