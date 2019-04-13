@@ -25,7 +25,7 @@ public class EmailUtil {
 	@Autowired
 	UpdateService updateService;
 	
-	List<Clients> clients = updateService.getClients();
+	List<Clients> clients = new ArrayList<>();
 	
 	public EmailUtil() {
 		// TODO Auto-generated constructor stub
@@ -104,6 +104,9 @@ if(Integer.parseInt(receiver.getMaxLeadsPerDay()) <= Integer.parseInt(receiver.g
 	
 	
 	public void emailQuotation(PersonQuote quotation) {
+		
+		clients = updateService.getClients();
+		System.out.println("Clients :  " + clients);
 		JavaMailSenderImpl mailSender = new JavaMailSenderImpl();
         mailSender.setHost(this.configuration.getHost());
         mailSender.setPort(this.configuration.getPort());
