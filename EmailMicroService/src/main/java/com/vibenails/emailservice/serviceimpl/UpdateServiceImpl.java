@@ -21,8 +21,8 @@ public class UpdateServiceImpl implements UpdateService {
 	private ClientRepository userRepository;
 	
 	@Override
-	public String addNewUser(String name, String email, String minimumDayRate, String timeLine, String maxLeadsPerDay,
-			String maxBudget, String unitPrice, String checkValue) {
+	public String addNewUser(String name, String email, Integer minimumDayRate, String timeLine, Integer maxLeadsPerDay,
+			Integer maxBudget, Integer unitPrice, String checkValue) {
 		// TODO Auto-generated method stub
 		Clients n = new Clients();
 		n.setName(name);
@@ -33,6 +33,8 @@ public class UpdateServiceImpl implements UpdateService {
 		n.setMaxBudget(maxBudget);
 		n.setUnitPrice(unitPrice);
 		n.setCheckValue(checkValue);
+		n.setCurrentSent(0);
+		n.setTotalSent(0);
 		userRepository.save(n);
 		return "Saved";
 	}
@@ -101,6 +103,20 @@ public class UpdateServiceImpl implements UpdateService {
 		} else {
 			return false;
 		}
+	}
+
+	@Override
+	public String deleteUser(Integer id) {
+		// TODO Auto-generated method stub
+		userRepository.deleteById(id);
+		return "Deleted";
+	}
+
+	@Override
+	public String deleteAllUsers() {
+		// TODO Auto-generated method stub
+		userRepository.deleteAll();
+		return "Deleted All";
 	}
 
 }

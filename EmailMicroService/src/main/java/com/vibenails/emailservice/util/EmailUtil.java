@@ -19,8 +19,8 @@ import com.vibenails.emailservice.service.UpdateService;
 @Component
 public class EmailUtil {
 
-	//private static int receiver = 0;
-	//private List<String> receiverList;
+	// private static int receiver = 0;
+	// private List<String> receiverList;
 
 	@Autowired
 	public EmailConfiguration configuration;
@@ -28,17 +28,15 @@ public class EmailUtil {
 	@Autowired
 	private UpdateService updateService;
 
-	/*public EmailUtil() {
-		// TODO Auto-generated constructor stub
-		receiverList = new ArrayList<>();
-		receiverList.add("pallurubhargav4@gmail.com");
-		receiverList.add("2@sample.com");
-		receiverList.add("3@sample.com");
-		receiverList.add("4@sample.com");
-		receiverList.add("5@sample.com");
-		// System.out.println("Clients : " + clients);
-
-	}*/
+	/*
+	 * public EmailUtil() { // TODO Auto-generated constructor stub receiverList =
+	 * new ArrayList<>(); receiverList.add("pallurubhargav4@gmail.com");
+	 * receiverList.add("2@sample.com"); receiverList.add("3@sample.com");
+	 * receiverList.add("4@sample.com"); receiverList.add("5@sample.com"); //
+	 * System.out.println("Clients : " + clients);
+	 * 
+	 * }
+	 */
 
 	/*
 	 * public void emailQuotation(PersonQuote quotation) {
@@ -70,6 +68,8 @@ public class EmailUtil {
 
 		receiverLst = updateService.getClients();
 
+		// System.out.println("Clients : " + receiverLst);
+
 		JavaMailSenderImpl mailSender = new JavaMailSenderImpl();
 		mailSender.setHost(this.configuration.getHost());
 		mailSender.setPort(this.configuration.getPort());
@@ -84,17 +84,17 @@ public class EmailUtil {
 			// if receiverLst is not empty and if it's empty then in else reset all the
 			// clients checkValue field to N
 			for (Clients receiver : receiverLst) {
+
+				System.out.println("Clients :  " + receiver);
+
 				if (!StringUtils.isEmpty(receiver)) {
 					if ((!StringUtils.isEmpty(receiver.getMinimumDayRate()))
 							&& (!StringUtils.isEmpty(receiver.getTimeLine()))
-							&& (!StringUtils.isEmpty(receiver.getMaxLeadsPerMonth())
-									&& (!StringUtils.isEmpty(receiver.getMaxLeadsPerDay())))) {
+							&& (!StringUtils.isEmpty(receiver.getMaxLeadsPerDay()))) {
 						// emailQuotation(PersonQuote quotation)
-						if (Integer.parseInt(quotation.getPriceQuote()) >= Integer
-								.parseInt(receiver.getMinimumDayRate())) {
+						if (quotation.getPriceQuote() >= receiver.getMinimumDayRate()) {
 							if (receiver.getTimeLine() == "AE") {
-								if (Integer.parseInt(receiver.getMaxLeadsPerDay()) <= Integer
-										.parseInt(receiver.getCurrentSent())) {
+								if (receiver.getMaxLeadsPerDay() <= receiver.getCurrentSent()) {
 									// send email to the email
 									// update checkValue field to Y
 									// update value of currentSent and totalSent
@@ -115,8 +115,7 @@ public class EmailUtil {
 
 							} else if (receiver.getTimeLine() == "WE" && sysTime.getHour() >= 9
 									&& sysTime.getHour() <= 17) {
-								if (Integer.parseInt(receiver.getMaxLeadsPerDay()) <= Integer
-										.parseInt(receiver.getCurrentSent())) {
+								if (receiver.getMaxLeadsPerDay() <= receiver.getCurrentSent()) {
 									// send email to the email
 									// update checkValue field to Y
 									// update value of currentSent and totalSent
@@ -134,8 +133,7 @@ public class EmailUtil {
 									continue;
 								}
 							} else if (receiver.getTimeLine() == "AW" && day != 5 && day != 6) {
-								if (Integer.parseInt(receiver.getMaxLeadsPerDay()) <= Integer
-										.parseInt(receiver.getCurrentSent())) {
+								if (receiver.getMaxLeadsPerDay() <= receiver.getCurrentSent()) {
 									// send email to the email
 									// update checkValue field to Y
 									// update value of currentSent and totalSent
@@ -153,8 +151,7 @@ public class EmailUtil {
 								}
 							} else if (receiver.getTimeLine() == "WW" && day != 5 && day != 6 && sysTime.getHour() >= 9
 									&& sysTime.getHour() <= 17) {
-								if (Integer.parseInt(receiver.getMaxLeadsPerDay()) <= Integer
-										.parseInt(receiver.getCurrentSent())) {
+								if (receiver.getMaxLeadsPerDay() <= receiver.getCurrentSent()) {
 									// send email to the email
 									// update checkValue field to Y
 									// update value of currentSent and totalSent
@@ -172,26 +169,26 @@ public class EmailUtil {
 								}
 							} else {
 								updateService.updateMiss(receiver.getId());
-								
+
 								SimpleMailMessage mailMessage = new SimpleMailMessage();
 								mailMessage.setFrom(quotation.getEmail());
 								mailMessage.setTo("Default@Email.com");
 								mailMessage.setSubject("New Quotation Received from " + quotation.getFullName());
 								mailMessage.setText("Find the Quotation details below:\n" + quotation.toString());
 								mailSender.send(mailMessage);
-								
+
 								continue;
 							}
 						} else {
 							updateService.updateMiss(receiver.getId());
-							
+
 							SimpleMailMessage mailMessage = new SimpleMailMessage();
 							mailMessage.setFrom(quotation.getEmail());
 							mailMessage.setTo("Default@Email.com");
 							mailMessage.setSubject("New Quotation Received from " + quotation.getFullName());
 							mailMessage.setText("Find the Quotation details below:\n" + quotation.toString());
 							mailSender.send(mailMessage);
-							
+
 							continue;
 						}
 					} else {
@@ -209,7 +206,7 @@ public class EmailUtil {
 
 			Boolean flag;
 			flag = updateService.updateReset();
-			if(flag.TRUE) {
+			if (flag.TRUE) {
 				checkConstraints(quotation);
 			} else {
 				SimpleMailMessage mailMessage = new SimpleMailMessage();
@@ -219,7 +216,7 @@ public class EmailUtil {
 				mailMessage.setText("Find the Quotation details below:\n" + quotation.toString());
 				mailSender.send(mailMessage);
 			}
-			
+
 		}
 
 	}
