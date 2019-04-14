@@ -17,4 +17,7 @@ public interface ClientRepository extends CrudRepository<Clients, Integer> {
 	@Query("SELECT u FROM Clients u WHERE u.checkValue = 'N'")
 	List<Clients> find();
 
+	@Query("UPDATE Clients u SET u.checkValue = 'N' WHERE u.checkValue = 'Y'")
+	void setN();
+
 }

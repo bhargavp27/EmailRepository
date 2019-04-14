@@ -24,7 +24,8 @@ public class QuotationController {
 			System.out.println(bindingResult.getAllErrors());
 			return "Quotation details are wrong.";
 		} else {
-			emailUtil.emailQuotation(quotation);
+			//emailUtil.emailQuotation(quotation);
+			emailUtil.checkConstraints(quotation);
 			System.out.println(quotation);
 		}
 		return "Quotation is received successfully";

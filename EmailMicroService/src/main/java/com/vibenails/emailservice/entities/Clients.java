@@ -7,7 +7,31 @@ import javax.persistence.Id;
 
 @Entity // This tells Hibernate to make a table out of this class
 public class Clients {
-    @Id
+	
+	
+	public Clients() {
+		
+	}
+	
+    public Clients(Integer id, String name, String email, String minimumDayRate, String timeLine, String maxLeadsPerDay,
+			String maxLeadsPerMonth, String maxBudget, String unitPrice, String currentSent, String totalSent,
+			String checkValue) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.email = email;
+		this.minimumDayRate = minimumDayRate;
+		this.timeLine = timeLine;
+		this.maxLeadsPerDay = maxLeadsPerDay;
+		this.maxLeadsPerMonth = maxLeadsPerMonth;
+		this.maxBudget = maxBudget;
+		this.unitPrice = unitPrice;
+		this.currentSent = currentSent;
+		this.totalSent = totalSent;
+		this.checkValue = checkValue;
+	}
+
+	@Id
     @GeneratedValue(strategy=GenerationType.AUTO)
     private Integer id;
 
