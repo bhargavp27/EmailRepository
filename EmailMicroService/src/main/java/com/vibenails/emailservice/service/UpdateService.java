@@ -18,5 +18,8 @@ public interface UpdateService {
 	public Iterable<Clients> getAllUsers();
 	public List<Clients> getClients();
 	public String updateSent(Integer id);
+	public String updateDone(Integer id);
+	public String updateMiss(Integer id);
+	public Boolean updateReset();
 
 }
