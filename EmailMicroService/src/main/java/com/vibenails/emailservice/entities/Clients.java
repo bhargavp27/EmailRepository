@@ -4,8 +4,10 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
-@Entity // This tells Hibernate to make a table out of this class
+@Entity
+@Table(name = "Clients", schema = "vibenails_data")// This tells Hibernate to make a table out of this class
 public class Clients {
 	
 	
@@ -13,8 +15,8 @@ public class Clients {
 		
 	}
 	
-    public Clients(Integer id, String name, String email, String minimumDayRate, String timeLine, String maxLeadsPerDay,
-			String maxLeadsPerMonth, String maxBudget, String unitPrice, String currentSent, String totalSent,
+    public Clients(Integer id, String name, String email, Integer minimumDayRate, String timeLine, Integer maxLeadsPerDay,
+			Integer maxLeadsPerMonth, Integer maxBudget, Integer unitPrice, Integer currentSent, Integer totalSent,
 			String checkValue) {
 		super();
 		this.id = id;
@@ -39,21 +41,21 @@ public class Clients {
 
     private String email;
     
-    private String minimumDayRate;
+    private Integer minimumDayRate;
     
     private String timeLine;
     
-    private String maxLeadsPerDay;
+    private Integer maxLeadsPerDay;
     
-    private String maxLeadsPerMonth;
+    private Integer maxLeadsPerMonth;
     
-    private String maxBudget;
+    private Integer maxBudget;
     
-    private String unitPrice;
+    private Integer unitPrice;
     
-    private String currentSent;
+    private Integer currentSent;
     
-    private String totalSent;
+    private Integer totalSent;
     
     private String checkValue;
     
@@ -65,35 +67,35 @@ public class Clients {
 		this.checkValue = checkValue;
 	}
 
-	public String getCurrentSent() {
+	public Integer getCurrentSent() {
 		return currentSent;
 	}
 
-	public void setCurrentSent(String currentSent) {
+	public void setCurrentSent(Integer currentSent) {
 		this.currentSent = currentSent;
 	}
 
-	public String getTotalSent() {
+	public Integer getTotalSent() {
 		return totalSent;
 	}
 
-	public void setTotalSent(String totalSent) {
+	public void setTotalSent(Integer totalSent) {
 		this.totalSent = totalSent;
 	}
 
-	public String getMaxBudget() {
+	public Integer getMaxBudget() {
 		return maxBudget;
 	}
 
-	public void setMaxBudget(String maxBudget) {
+	public void setMaxBudget(Integer maxBudget) {
 		this.maxBudget = maxBudget;
 	}
 
-	public String getUnitPrice() {
+	public Integer getUnitPrice() {
 		return unitPrice;
 	}
 
-	public void setUnitPrice(String unitPrice) {
+	public void setUnitPrice(Integer unitPrice) {
 		this.unitPrice = unitPrice;
 	}
 
@@ -113,11 +115,11 @@ public class Clients {
 		this.email = email;
 	}
 
-	public String getMinimumDayRate() {
+	public Integer getMinimumDayRate() {
 		return minimumDayRate;
 	}
 
-	public void setMinimumDayRate(String minimumDayRate) {
+	public void setMinimumDayRate(Integer minimumDayRate) {
 		this.minimumDayRate = minimumDayRate;
 	}
 
@@ -129,19 +131,19 @@ public class Clients {
 		this.timeLine = timeLine;
 	}
 
-	public String getMaxLeadsPerDay() {
+	public Integer getMaxLeadsPerDay() {
 		return maxLeadsPerDay;
 	}
 
-	public void setMaxLeadsPerDay(String maxLeadsPerDay) {
+	public void setMaxLeadsPerDay(Integer maxLeadsPerDay) {
 		this.maxLeadsPerDay = maxLeadsPerDay;
 	}
 
-	public String getMaxLeadsPerMonth() {
+	public Integer getMaxLeadsPerMonth() {
 		return maxLeadsPerMonth;
 	}
 
-	public void setMaxLeadsPerMonth(String maxLeadsPerMonth) {
+	public void setMaxLeadsPerMonth(Integer maxLeadsPerMonth) {
 		this.maxLeadsPerMonth = maxLeadsPerMonth;
 	}
 

@@ -16,7 +16,7 @@ public class PersonQuote {
 	private String phoneNumber;
 	
 	@NonNull
-	private String priceQuote;
+	private Integer priceQuote;
 	
 	@NonNull
 	@Email
@@ -67,14 +67,14 @@ public class PersonQuote {
 	/**
 	 * @return the priceQuote
 	 */
-	public String getPriceQuote() {
+	public Integer getPriceQuote() {
 		return priceQuote;
 	}
 
 	/**
 	 * @param priceQuote the priceQuote to set
 	 */
-	public void setPriceQuote(String priceQuote) {
+	public void setPriceQuote(Integer priceQuote) {
 		this.priceQuote = priceQuote;
 	}
 
